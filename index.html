@@ -1,546 +1,341 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="scroll-smooth">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Symétrie — Odontología Especializada</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-<style>
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-:root {
-  --teal: #2e8b84; --teal-dark: #1a5f5a; --teal-light: #e8f5f4;
-  --gold: #c9a96e; --cream: #faf8f5; --dark: #1a1a1a; --gray: #6b6b6b;
-  --serif: 'Cormorant Garamond', Georgia, serif; --sans: 'DM Sans', sans-serif;
-}
-html { scroll-behavior: smooth; }
-body { font-family: var(--sans); background: var(--cream); color: var(--dark); overflow-x: hidden; }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SYMÉTRIE | Odontología Especializada en Pereira</title>
+    
+    <!-- Tipografías de Alta Gama -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tailwind CSS Config -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        symetrie: {
+                            DEFAULT: '#3a7ca5', // Teal inspirado en el logo
+                            dark: '#2c6182',
+                            light: '#eef4f8',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Montserrat', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
 
-/* NAV */
-nav {
-  position: fixed; top: 0; left: 0; right: 0; z-index: 200;
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 1rem 2rem; background: rgba(250,248,245,0.95);
-  backdrop-filter: blur(12px); border-bottom: 1px solid rgba(46,139,132,0.15);
-  transition: box-shadow 0.3s;
-}
-.nav-logo { display: flex; align-items: center; gap: 0.6rem; text-decoration: none; }
-.nav-logo-circle { width: 36px; height: 36px; background: var(--teal); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-.nav-logo-circle svg { width: 20px; height: 20px; }
-.nav-logo-text { font-family: var(--serif); font-size: 1.3rem; font-weight: 300; letter-spacing: 0.08em; color: var(--teal-dark); }
-.nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
-.nav-links a { text-decoration: none; font-size: 0.8rem; font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gray); transition: color 0.2s; }
-.nav-links a:hover { color: var(--teal); }
-.nav-cta { background: var(--teal) !important; color: white !important; padding: 0.5rem 1.3rem !important; border-radius: 2rem !important; }
-.nav-cta:hover { background: var(--teal-dark) !important; color: white !important; }
-.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
-.hamburger span { display: block; width: 24px; height: 2px; background: var(--teal-dark); transition: all 0.3s; border-radius: 2px; }
-.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-.hamburger.open span:nth-child(2) { opacity: 0; }
-.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-.mobile-menu { display: none; position: fixed; top: 62px; left: 0; right: 0; z-index: 199; background: rgba(250,248,245,0.98); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(46,139,132,0.15); flex-direction: column; padding: 1.5rem 2rem; gap: 1.2rem; }
-.mobile-menu.open { display: flex; }
-.mobile-menu a { text-decoration: none; font-size: 1rem; color: var(--dark); padding: 0.4rem 0; border-bottom: 1px solid rgba(46,139,132,0.1); }
-.mobile-menu a:last-child { background: var(--teal); color: white; text-align: center; padding: 0.8rem; border-radius: 2rem; border: none; margin-top: 0.5rem; }
+    <style>
+        body { background-color: #fafBfc; }
+        
+        /* Hero background sutil y elegante */
+        .hero-bg {
+            background: linear-gradient(to right, rgba(250, 251, 252, 0.98) 0%, rgba(250, 251, 252, 0.85) 50%, rgba(250, 251, 252, 0.2) 100%), 
+                        url('https://images.unsplash.com/photo-1590664095641-7fa05f689813?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center 20%/cover no-repeat;
+        }
 
-/* HERO */
-.hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; padding-top: 62px; overflow: hidden; }
-.hero-left { display: flex; flex-direction: column; justify-content: center; padding: 4rem 3rem 4rem 5rem; }
-.hero-tag { font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--teal); margin-bottom: 1.2rem; font-weight: 500; }
-.hero-title { font-family: var(--serif); font-size: clamp(2.8rem, 4.5vw, 5rem); font-weight: 300; line-height: 1.05; color: var(--dark); margin-bottom: 1rem; }
-.hero-title em { font-style: italic; color: var(--teal); }
-.hero-subtitle { font-family: var(--serif); font-size: 1rem; color: var(--gray); font-weight: 300; margin-bottom: 2.5rem; line-height: 1.7; max-width: 380px; }
-.hero-actions { display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; }
-.btn-primary { background: var(--teal); color: white; padding: 0.85rem 1.8rem; border-radius: 3rem; text-decoration: none; font-size: 0.85rem; font-weight: 500; letter-spacing: 0.05em; transition: all 0.25s; display: inline-block; }
-.btn-primary:hover { background: var(--teal-dark); transform: translateY(-1px); }
-.btn-outline { color: var(--teal); padding: 0.85rem 1.6rem; border-radius: 3rem; text-decoration: none; font-size: 0.85rem; border: 1.5px solid var(--teal); transition: all 0.25s; display: inline-block; }
-.btn-outline:hover { background: var(--teal-light); }
+        .shadow-boutique { box-shadow: 0 20px 40px -15px rgba(58, 124, 165, 0.08); }
+        .glass-effect { background: rgba(255, 255, 255, 0.85); backdrop-filter: blur(12px); }
 
-/* HERO RIGHT con foto real */
-.hero-right {
-  position: relative; overflow: hidden;
-}
-.hero-right-img {
-  width: 100%; height: 100%; object-fit: cover; object-position: center top;
-  display: block;
-}
-.hero-right-overlay {
-  position: absolute; inset: 0;
-  background: linear-gradient(to right, rgba(250,248,245,0.15) 0%, transparent 40%),
-              linear-gradient(to top, rgba(26,95,90,0.5) 0%, transparent 50%);
-}
-.hero-phone-badge {
-  position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
-  background: var(--teal); color: white; padding: 0.7rem 1.5rem;
-  border-radius: 3rem; font-size: 0.85rem; font-weight: 500;
-  letter-spacing: 0.05em; white-space: nowrap; text-decoration: none;
-  transition: background 0.2s;
-}
-.hero-phone-badge:hover { background: var(--teal-dark); }
+        .fade-in-up {
+            animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
 
-/* STATS */
-.stats-bar { background: var(--teal-dark); padding: 1.8rem 4rem; display: grid; grid-template-columns: repeat(4,1fr); gap: 0.5rem; }
-.stat-item { text-align: center; border-right: 1px solid rgba(255,255,255,0.15); padding: 0.5rem; }
-.stat-item:last-child { border-right: none; }
-.stat-num { font-family: var(--serif); font-size: 2rem; font-weight: 300; color: white; line-height: 1; margin-bottom: 0.3rem; }
-.stat-label { font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.6); }
-
-/* SECTION */
-.section-tag { font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--teal); font-weight: 500; margin-bottom: 0.8rem; display: block; }
-.section-title { font-family: var(--serif); font-size: clamp(1.8rem, 3vw, 3rem); font-weight: 300; line-height: 1.1; color: var(--dark); margin-bottom: 1rem; }
-.section-title em { font-style: italic; color: var(--teal); }
-.section-desc { font-size: 0.92rem; color: var(--gray); line-height: 1.8; max-width: 480px; margin-bottom: 3rem; }
-
-/* SERVICIOS */
-.services { padding: 5rem 4rem; background: var(--cream); }
-.services-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5px; background: rgba(46,139,132,0.15); border: 1.5px solid rgba(46,139,132,0.15); }
-.service-card { background: var(--cream); padding: 2rem 1.8rem; transition: background 0.3s; position: relative; overflow: hidden; }
-.service-card::before { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 3px; background: var(--teal); transition: width 0.3s; }
-.service-card:hover::before { width: 100%; }
-.service-card:hover { background: white; }
-.service-icon { width: 44px; height: 44px; background: var(--teal-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 1.2rem; }
-.service-icon svg { width: 20px; height: 20px; stroke: var(--teal); fill: none; stroke-width: 1.5; }
-.service-name { font-family: var(--serif); font-size: 1.2rem; font-weight: 400; color: var(--dark); margin-bottom: 0.6rem; }
-.service-desc { font-size: 0.83rem; color: var(--gray); line-height: 1.7; }
-
-/* EQUIPO */
-.team { padding: 5rem 4rem; background: white; }
-.team-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 3rem; flex-wrap: wrap; gap: 1.5rem; }
-.team-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; }
-.doctor-card { position: relative; overflow: hidden; cursor: default; }
-.doctor-photo { width: 100%; aspect-ratio: 3/4; position: relative; overflow: hidden; background: var(--teal-light); }
-
-/* Foto real */
-.doctor-photo img {
-  width: 100%; height: 100%; object-fit: cover; object-position: center top;
-  display: block; transition: transform 0.5s ease;
-}
-.doctor-card:hover .doctor-photo img { transform: scale(1.04); }
-
-/* Placeholder para doctoras sin foto */
-.doctor-photo-placeholder { width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; padding-bottom: 2rem; background: linear-gradient(180deg, #c8e8e6 0%, #a0d4d1 100%); }
-.doctor-silhouette { width: 110px; fill: var(--teal-dark); opacity: 0.4; }
-
-.doctor-photo-overlay { position: absolute; bottom: 0; left: 0; right: 0; height: 55%; background: linear-gradient(to top, rgba(26,95,90,0.9) 0%, transparent 100%); display: flex; flex-direction: column; justify-content: flex-end; padding: 1.2rem; transition: height 0.3s; }
-.doctor-card:hover .doctor-photo-overlay { height: 70%; }
-.doctor-name { font-family: var(--serif); font-size: 1.25rem; font-weight: 400; color: white; margin-bottom: 0.2rem; }
-.doctor-specialty { font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.75); margin-bottom: 0.6rem; }
-.doctor-bio { font-size: 0.8rem; color: rgba(255,255,255,0.85); line-height: 1.6; max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
-.doctor-card:hover .doctor-bio { max-height: 120px; }
-
-/* TESTIMONIOS */
-.testimonials { padding: 5rem 4rem; background: var(--teal); }
-.test-header { text-align: center; margin-bottom: 3rem; }
-.test-header .section-tag { color: rgba(255,255,255,0.7); }
-.test-header .section-title { color: white; max-width: 100%; text-align: center; }
-.test-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.2rem; }
-.test-card { background: rgba(255,255,255,0.12); padding: 1.8rem; border: 1px solid rgba(255,255,255,0.2); }
-.test-quote { font-family: var(--serif); font-size: 1rem; font-style: italic; color: rgba(255,255,255,0.9); line-height: 1.7; margin-bottom: 1.2rem; }
-.test-author { display: flex; align-items: center; gap: 0.8rem; }
-.test-avatar { width: 34px; height: 34px; border-radius: 50%; background: rgba(255,255,255,0.25); display: flex; align-items: center; justify-content: center; font-family: var(--serif); font-size: 0.8rem; color: white; flex-shrink: 0; }
-.test-name { font-size: 0.83rem; font-weight: 500; color: white; }
-.test-stars { color: var(--gold); font-size: 0.7rem; letter-spacing: 2px; }
-
-/* CITAS */
-.appointment { padding: 5rem 4rem; background: var(--cream); display: grid; grid-template-columns: 1fr 1.2fr; gap: 5rem; align-items: start; }
-.appt-left { position: sticky; top: 5rem; }
-.appt-info-block { margin-top: 2rem; }
-.appt-info-item { display: flex; gap: 0.8rem; align-items: flex-start; margin-bottom: 1.3rem; }
-.appt-icon { width: 38px; height: 38px; background: var(--teal-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-.appt-icon svg { width: 17px; height: 17px; stroke: var(--teal); fill: none; stroke-width: 1.8; }
-.appt-info-label { font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--teal); font-weight: 500; margin-bottom: 0.2rem; }
-.appt-info-value { font-size: 0.88rem; color: var(--dark); line-height: 1.5; }
-.appt-form { background: white; padding: 2.5rem; border: 1px solid rgba(46,139,132,0.2); }
-.form-title { font-family: var(--serif); font-size: 1.7rem; font-weight: 300; color: var(--dark); margin-bottom: 1.8rem; }
-.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; }
-.form-group { margin-bottom: 0.9rem; }
-.form-group label { display: block; font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gray); margin-bottom: 0.4rem; font-weight: 500; }
-.form-group input, .form-group select, .form-group textarea { width: 100%; padding: 0.75rem 0.9rem; border: 1px solid #ddd; background: var(--cream); font-family: var(--sans); font-size: 0.88rem; color: var(--dark); outline: none; transition: border-color 0.2s; border-radius: 0; appearance: none; -webkit-appearance: none; }
-.form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--teal); background: white; }
-.form-group textarea { resize: vertical; min-height: 90px; }
-.form-select-wrap { position: relative; }
-.form-select-wrap::after { content: '▾'; position: absolute; right: 0.9rem; top: 50%; transform: translateY(-50%); color: var(--teal); pointer-events: none; font-size: 0.75rem; }
-.form-submit { width: 100%; padding: 0.95rem; background: var(--teal); color: white; border: none; font-family: var(--sans); font-size: 0.83rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; transition: background 0.25s; margin-top: 0.4rem; }
-.form-submit:hover { background: var(--teal-dark); }
-.form-note { font-size: 0.73rem; color: var(--gray); margin-top: 0.8rem; text-align: center; line-height: 1.6; }
-#success-msg { display: none; background: var(--teal-light); border: 1px solid var(--teal); padding: 1rem; text-align: center; margin-top: 0.8rem; font-size: 0.88rem; color: var(--teal-dark); }
-
-/* FOOTER */
-footer { background: var(--teal-dark); color: white; padding: 4rem 4rem 2rem; }
-.footer-top { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 3rem; padding-bottom: 2.5rem; border-bottom: 1px solid rgba(255,255,255,0.15); }
-.footer-brand .logo-circle { width: 40px; height: 40px; border: 1.5px solid rgba(255,255,255,0.5); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 0.8rem; }
-.footer-brand-name { font-family: var(--serif); font-size: 1.4rem; font-weight: 300; letter-spacing: 0.1em; margin-bottom: 0.2rem; color: white; }
-.footer-brand-sub { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 1rem; }
-.footer-brand-tagline { font-family: var(--serif); font-size: 0.95rem; font-style: italic; color: rgba(255,255,255,0.7); line-height: 1.6; }
-.footer-col h4 { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 1rem; font-weight: 500; }
-.footer-col ul { list-style: none; }
-.footer-col ul li { margin-bottom: 0.6rem; }
-.footer-col ul li a { text-decoration: none; font-size: 0.84rem; color: rgba(255,255,255,0.75); transition: color 0.2s; }
-.footer-col ul li a:hover { color: white; }
-.footer-bottom { padding-top: 1.8rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; }
-.footer-bottom p { font-size: 0.75rem; color: rgba(255,255,255,0.4); }
-.social-links { display: flex; gap: 0.8rem; }
-.social-links a { width: 34px; height: 34px; border: 1px solid rgba(255,255,255,0.25); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.7); text-decoration: none; font-size: 0.72rem; transition: all 0.2s; }
-.social-links a:hover { background: rgba(255,255,255,0.15); color: white; }
-
-/* ANIMATIONS */
-@keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-.hero-left > * { animation: fadeUp 0.7s ease forwards; opacity: 0; }
-.hero-left > *:nth-child(1) { animation-delay: 0.1s; }
-.hero-left > *:nth-child(2) { animation-delay: 0.25s; }
-.hero-left > *:nth-child(3) { animation-delay: 0.4s; }
-.hero-left > *:nth-child(4) { animation-delay: 0.55s; }
-.hero-left > *:nth-child(5) { animation-delay: 0.7s; }
-
-/* TABLET */
-@media (max-width: 1024px) {
-  nav { padding: 1rem 1.8rem; }
-  .nav-links { gap: 1.4rem; }
-  .hero-left { padding: 3rem 2rem 3rem 2.5rem; }
-  .stats-bar { padding: 1.5rem 2rem; }
-  .stat-num { font-size: 1.6rem; }
-  .services { padding: 4rem 2.5rem; }
-  .services-grid { grid-template-columns: repeat(2,1fr); }
-  .team { padding: 4rem 2.5rem; }
-  .team-grid { grid-template-columns: repeat(2,1fr); }
-  .testimonials { padding: 4rem 2.5rem; }
-  .test-grid { grid-template-columns: repeat(2,1fr); }
-  .appointment { padding: 4rem 2.5rem; gap: 3rem; }
-  footer { padding: 3rem 2.5rem 1.8rem; }
-  .footer-top { grid-template-columns: 1fr 1fr; }
-  .footer-top .footer-brand { grid-column: 1 / -1; }
-}
-
-/* MOBILE */
-@media (max-width: 768px) {
-  nav { padding: 0.9rem 1.2rem; }
-  .nav-links { display: none; }
-  .hamburger { display: flex; }
-  .hero { grid-template-columns: 1fr; min-height: auto; }
-  .hero-left { padding: 2.5rem 1.5rem; order: 2; }
-  .hero-title { font-size: clamp(2.2rem, 8vw, 3rem); }
-  .hero-subtitle { font-size: 0.95rem; max-width: 100%; }
-  .hero-right { order: 1; min-height: 320px; }
-  .hero-actions { flex-direction: column; align-items: stretch; }
-  .btn-primary, .btn-outline { text-align: center; }
-  .stats-bar { grid-template-columns: repeat(2,1fr); padding: 1.2rem 1.5rem; }
-  .stat-item:nth-child(2) { border-right: none; }
-  .stat-item:nth-child(3) { border-right: 1px solid rgba(255,255,255,0.15); }
-  .stat-num { font-size: 1.5rem; }
-  .services { padding: 3.5rem 1.5rem; }
-  .services-grid { grid-template-columns: 1fr; }
-  .team { padding: 3.5rem 1.5rem; }
-  .team-grid { grid-template-columns: 1fr; max-width: 380px; margin: 0 auto; }
-  .team-header { flex-direction: column; align-items: flex-start; }
-  .team-header .btn-primary { width: 100%; text-align: center; }
-  .testimonials { padding: 3.5rem 1.5rem; }
-  .test-grid { grid-template-columns: 1fr; }
-  .appointment { padding: 3.5rem 1.5rem; grid-template-columns: 1fr; gap: 2rem; }
-  .appt-left { position: static; }
-  .form-row { grid-template-columns: 1fr; }
-  .appt-form { padding: 1.8rem 1.2rem; }
-  footer { padding: 3rem 1.5rem 1.5rem; }
-  .footer-top { grid-template-columns: 1fr; gap: 2rem; }
-  .footer-bottom { flex-direction: column; align-items: flex-start; gap: 0.8rem; }
-  .section-title { font-size: clamp(1.6rem, 6vw, 2.2rem); }
-  .hero-phone-badge { font-size: 0.78rem; padding: 0.6rem 1.2rem; }
-}
-
-@media (max-width: 400px) {
-  .hero-title { font-size: 2rem; }
-  .stat-num { font-size: 1.3rem; }
-}
-</style>
+        @keyframes fadeInUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
 </head>
-<body>
+<body class="text-gray-800 antialiased overflow-x-hidden selection:bg-symetrie selection:text-white">
 
-<!-- NAV -->
-<nav id="navbar">
-  <a href="#inicio" class="nav-logo">
-    <div class="nav-logo-circle">
-      <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5">
-        <circle cx="12" cy="12" r="10"/>
-        <path d="M8 14s1.5 2 4 2 4-2 4-2" stroke-linecap="round"/>
-      </svg>
-    </div>
-    <span class="nav-logo-text">Symétrie</span>
-  </a>
-  <ul class="nav-links">
-    <li><a href="#servicios">Servicios</a></li>
-    <li><a href="#equipo">Equipo</a></li>
-    <li><a href="#testimonios">Testimonios</a></li>
-    <li><a href="#citas" class="nav-cta">Agendar cita</a></li>
-  </ul>
-  <button class="hamburger" id="hamburger" aria-label="Menú">
-    <span></span><span></span><span></span>
-  </button>
-</nav>
+    <!-- Navegación -->
+    <nav class="fixed w-full glass-effect z-50 border-b border-gray-100 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-24 items-center">
+                <!-- Logo -->
+                <a href="#" class="flex flex-col items-center justify-center">
+                    <span class="font-sans font-medium text-2xl md:text-3xl tracking-[0.25em] text-symetrie leading-none">SYMÉTRIE</span>
+                    <span class="text-[0.55rem] md:text-[0.65rem] uppercase tracking-[0.3em] text-gray-500 mt-1.5">Odontología Especializada</span>
+                </a>
+                
+                <!-- Enlaces Desktop -->
+                <div class="hidden md:flex items-center space-x-10">
+                    <a href="#filosofia" class="text-xs uppercase tracking-[0.15em] font-medium text-gray-500 hover:text-symetrie transition">Filosofía</a>
+                    <a href="#especialidades" class="text-xs uppercase tracking-[0.15em] font-medium text-gray-500 hover:text-symetrie transition">Especialidades</a>
+                    <a href="#experiencia" class="text-xs uppercase tracking-[0.15em] font-medium text-gray-500 hover:text-symetrie transition">Experiencia</a>
+                    <a href="https://wa.link/jr8esi" target="_blank" class="bg-symetrie text-white px-8 py-3 rounded-none text-xs uppercase tracking-[0.15em] font-medium hover:bg-symetrie-dark shadow-sm transition-all duration-300">
+                        Agenda tu Cita
+                    </a>
+                </div>
 
-<!-- MOBILE MENU -->
-<div class="mobile-menu" id="mobileMenu">
-  <a href="#servicios" onclick="closeMenu()">Servicios</a>
-  <a href="#equipo" onclick="closeMenu()">Equipo</a>
-  <a href="#testimonios" onclick="closeMenu()">Testimonios</a>
-  <a href="#citas" onclick="closeMenu()">Agendar cita</a>
-</div>
-
-<!-- HERO -->
-<section class="hero" id="inicio">
-  <div class="hero-left">
-    <span class="hero-tag">Odontología Especializada · Pereira, Risaralda</span>
-    <h1 class="hero-title">Una sonrisa<br><em>perfecta</em><br>a tu alcance</h1>
-    <p class="hero-subtitle">Transformamos tu sonrisa con tratamientos especializados, tecnología avanzada y el más alto estándar de cuidado dental en Pereira.</p>
-    <div class="hero-actions">
-      <a href="#citas" class="btn-primary">Agenda tu cita</a>
-      <a href="#servicios" class="btn-outline">Ver servicios</a>
-    </div>
-  </div>
-  <div class="hero-right">
-    <img class="hero-right-img" src="foto-hero.jpg" alt="Odontóloga Symétrie Pereira">
-    <div class="hero-right-overlay"></div>
-    <a href="tel:3215619417" class="hero-phone-badge">📞 321 561 9417</a>
-  </div>
-</section>
-
-<!-- STATS -->
-<div class="stats-bar">
-  <div class="stat-item"><div class="stat-num">500+</div><div class="stat-label">Pacientes transformados</div></div>
-  <div class="stat-item"><div class="stat-num">3</div><div class="stat-label">Especialidades</div></div>
-  <div class="stat-item"><div class="stat-num">100%</div><div class="stat-label">Satisfacción</div></div>
-  <div class="stat-item"><div class="stat-num">5★</div><div class="stat-label">Calificación Google</div></div>
-</div>
-
-<!-- SERVICIOS -->
-<section class="services" id="servicios">
-  <span class="section-tag">Lo que ofrecemos</span>
-  <h2 class="section-title">Tratamientos que <em>transforman</em> tu sonrisa</h2>
-  <p class="section-desc">Combinamos conocimiento especializado con tecnología de punta para ofrecerte resultados excepcionales y duraderos.</p>
-  <div class="services-grid">
-    <div class="service-card">
-      <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M12 2C8.5 2 6 4 6 7c0 2 1 3.5 2 5l1 3h6l1-3c1-1.5 2-3 2-5 0-3-2.5-5-6-5z"/><path d="M9 15v4a1 1 0 001 1h4a1 1 0 001-1v-4"/></svg></div>
-      <h3 class="service-name">Odontología General</h3>
-      <p class="service-desc">Diagnóstico, prevención y tratamientos básicos para mantener tu salud bucal en óptimas condiciones. Limpiezas, resinas y más.</p>
-    </div>
-    <div class="service-card">
-      <div class="service-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M8 14s1 2 4 2 4-2 4-2"/><path d="M6 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/></svg></div>
-      <h3 class="service-name">Odontología Estética</h3>
-      <p class="service-desc">Diseño de sonrisa, carillas de porcelana, blanqueamiento dental profesional y armonización orofacial para una sonrisa radiante.</p>
-    </div>
-    <div class="service-card">
-      <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M12 3C7 3 3 7 3 12s4 9 9 9 9-4 9-9-4-9-9-9z"/><path d="M9 12h6M12 9v6"/></svg></div>
-      <h3 class="service-name">Ortodoncia Express</h3>
-      <p class="service-desc">Planes desde 6 meses. No más años con brackets. Ortodoncia tradicional y alineadores transparentes para todas las edades.</p>
-    </div>
-    <div class="service-card">
-      <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg></div>
-      <h3 class="service-name">Implantes Dentales</h3>
-      <p class="service-desc">Solución permanente para dientes perdidos. Implantes de titanio de alta calidad con resultados naturales y duraderos.</p>
-    </div>
-    <div class="service-card">
-      <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M4 12 L8 16 L20 4"/><circle cx="12" cy="12" r="10"/></svg></div>
-      <h3 class="service-name">Rehabilitación Oral</h3>
-      <p class="service-desc">Restauración completa de la función masticatoria y estética. Coronas, puentes y prótesis con los mejores materiales.</p>
-    </div>
-    <div class="service-card">
-      <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
-      <h3 class="service-name">Odontopediatría</h3>
-      <p class="service-desc">Cuidado dental especializado para los más pequeños. Atención personalizada para que los niños disfruten su visita.</p>
-    </div>
-  </div>
-</section>
-
-<!-- EQUIPO -->
-<section class="team" id="equipo">
-  <div class="team-header">
-    <div>
-      <span class="section-tag">Nuestras especialistas</span>
-      <h2 class="section-title">El equipo que <em>cuida</em><br>tu sonrisa</h2>
-    </div>
-    <a href="#citas" class="btn-primary">Agendar con una especialista</a>
-  </div>
-  <div class="team-grid">
-
-    <!-- Dra. Stefany — foto real -->
-    <div class="doctor-card">
-      <div class="doctor-photo">
-        <img src="dra-stefany.jpg" alt="Dra. Stefany Espinosa — Ortodoncia">
-        <div class="doctor-photo-overlay">
-          <p class="doctor-name">Dra. Stefany Espinosa</p>
-          <p class="doctor-specialty">Ortodoncia · Ortopedia Maxilar</p>
-          <p class="doctor-bio">Odontóloga especialista en ortodoncia y ortopedia maxilar. Planes express desde 6 meses. Apasionada por transformar sonrisas de forma rápida y efectiva.</p>
+                <!-- Menú móvil -->
+                <div class="flex items-center md:hidden">
+                    <button class="text-symetrie p-2 focus:outline-none">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
+    </nav>
 
-    <!-- Dra. 2 — placeholder -->
-    <div class="doctor-card">
-      <div class="doctor-photo">
-        <div class="doctor-photo-placeholder" style="background:linear-gradient(180deg,#b8dbd9 0%,#8ec5c2 100%);">
-          <svg class="doctor-silhouette" viewBox="0 0 120 160"><ellipse cx="60" cy="45" rx="26" ry="30"/><path d="M15 160 Q20 100 60 95 Q100 100 105 160Z"/></svg>
+    <!-- Hero Section -->
+    <section class="hero-bg min-h-[90vh] flex items-center pt-24 relative">
+        <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 w-full">
+            <div class="max-w-2xl fade-in-up">
+                <p class="text-symetrie text-xs md:text-sm font-semibold tracking-[0.25em] uppercase mb-4 flex items-center gap-3">
+                    <span class="w-8 h-[1px] bg-symetrie inline-block"></span>
+                    Estética Dental Avanzada
+                </p>
+                <h1 class="text-5xl md:text-7xl font-serif text-gray-900 mb-6 leading-[1.1] tracking-tight">
+                    El arte de una <br>
+                    <span class="italic text-symetrie">sonrisa perfecta</span>
+                </h1>
+                <p class="text-base md:text-lg text-gray-500 mb-10 font-light leading-relaxed max-w-lg">
+                    Una sonrisa perfecta a tu alcance ✨. Diseñamos sonrisas equilibradas que resaltan la simetría natural de tu rostro con tecnología de vanguardia.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-5">
+                    <a href="https://wa.link/jr8esi" target="_blank" class="bg-symetrie text-white px-10 py-4 rounded-none font-medium text-center hover:bg-symetrie-dark transition-all duration-300 flex items-center justify-center gap-3 text-xs uppercase tracking-[0.15em]">
+                        Valoración por WhatsApp <i class="fab fa-whatsapp text-lg"></i>
+                    </a>
+                </div>
+            </div>
         </div>
-        <div class="doctor-photo-overlay">
-          <p class="doctor-name">Dra. Especialista</p>
-          <p class="doctor-specialty">Odontología Estética · Diseño de Sonrisa</p>
-          <p class="doctor-bio">Especialista en transformación de sonrisas. Experta en carillas de porcelana, blanqueamiento y armonización orofacial.</p>
+    </section>
+
+    <!-- Sección Filosofía -->
+    <section id="filosofia" class="py-24 md:py-32 bg-white relative">
+        <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16 items-center">
+                <div class="relative group order-2 lg:order-1">
+                    <!-- Imagen Estética Femenina (Armonía Facial) -->
+                    <img src="https://images.unsplash.com/photo-1512413914440-622fcefc55df?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Armonía Facial y Simetría" class="w-full h-[450px] md:h-[600px] object-cover shadow-boutique">
+                    <div class="absolute -bottom-8 -right-4 md:-right-8 bg-white p-6 md:p-8 shadow-boutique max-w-[200px] border border-gray-50">
+                        <i class="fas fa-quote-left text-symetrie text-2xl mb-3 opacity-50"></i>
+                        <p class="font-serif italic text-gray-800 text-sm md:text-base leading-relaxed">"La belleza reside en la simetría y las proporciones perfectas."</p>
+                    </div>
+                </div>
+                
+                <div class="fade-in-up order-1 lg:order-2" style="animation-delay: 0.2s;">
+                    <p class="text-symetrie text-xs font-semibold tracking-[0.2em] uppercase mb-4">Clínica Boutique en Pereira</p>
+                    <h2 class="text-4xl md:text-5xl font-serif text-gray-900 mb-8 leading-tight">Redefinimos la odontología contemporánea</h2>
+                    <p class="text-gray-500 mb-6 leading-relaxed font-light text-base">
+                        En SYMÉTRIE entendemos que tu sonrisa es tu mejor carta de presentación. No solo tratamos dientes; evaluamos tu estructura facial para crear resultados que armonicen con tus rasgos naturales.
+                    </p>
+                    <p class="text-gray-500 mb-10 leading-relaxed font-light text-base">
+                        Disfruta de intervenciones precisas, mínimamente invasivas y con los materiales más exclusivos del mercado dental en un ambiente diseñado para tu confort.
+                    </p>
+                    <a href="https://wa.link/jr8esi" target="_blank" class="inline-flex items-center gap-3 text-gray-900 font-medium text-xs uppercase tracking-[0.15em] hover:text-symetrie transition-colors group">
+                        Conocer la clínica <span class="w-8 h-[1px] bg-gray-900 group-hover:bg-symetrie group-hover:w-12 transition-all"></span>
+                    </a>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
+    </section>
 
-    <!-- Dra. 3 — placeholder -->
-    <div class="doctor-card">
-      <div class="doctor-photo">
-        <div class="doctor-photo-placeholder" style="background:linear-gradient(180deg,#d0e8e7 0%,#9ecfcc 100%);">
-          <svg class="doctor-silhouette" viewBox="0 0 120 160"><ellipse cx="60" cy="43" rx="27" ry="31"/><path d="M15 160 Q20 100 60 95 Q100 100 105 160Z"/></svg>
+    <!-- Sección Especialidades (Imágenes 100% coherentes) -->
+    <section id="especialidades" class="py-24 md:py-32 bg-symetrie-light/30">
+        <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 md:mb-24 fade-in-up">
+                <h2 class="text-4xl md:text-5xl font-serif text-gray-900 mb-4">Nuestras Especialidades</h2>
+                <div class="w-16 h-[1px] bg-symetrie mx-auto mb-6"></div>
+                <p class="text-gray-500 max-w-2xl mx-auto font-light">Tratamientos diseñados a medida con los más altos estándares de calidad clínica y estética.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
+                <!-- Estética (Imagen: Diseño de sonrisa/Dientes perfectos) -->
+                <div class="group cursor-pointer">
+                    <div class="relative overflow-hidden mb-6 shadow-sm h-80">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Odontología Estética" class="w-full h-full object-cover transition duration-700 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-all duration-500"></div>
+                    </div>
+                    <p class="text-symetrie text-[0.65rem] font-semibold tracking-[0.2em] uppercase mb-2">01. Estética</p>
+                    <h3 class="text-2xl font-serif mb-3 text-gray-900">Odontología Estética</h3>
+                    <p class="text-gray-500 font-light text-sm leading-relaxed mb-4">Diseño de sonrisa, carillas de alta estética y aclaramiento dental para alcanzar el tono y forma ideales.</p>
+                </div>
+                
+                <!-- Ortodoncia (Imagen: Alineadores invisibles / Invisalign) -->
+                <div class="group cursor-pointer md:mt-12">
+                    <div class="relative overflow-hidden mb-6 shadow-sm h-80">
+                        <img src="https://images.unsplash.com/photo-1598514982205-f36b96d1e8d4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Ortodoncia y Alineadores" class="w-full h-full object-cover transition duration-700 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-all duration-500"></div>
+                    </div>
+                    <p class="text-symetrie text-[0.65rem] font-semibold tracking-[0.2em] uppercase mb-2">02. Alineación</p>
+                    <h3 class="text-2xl font-serif mb-3 text-gray-900">Ortodoncia</h3>
+                    <p class="text-gray-500 font-light text-sm leading-relaxed mb-4">Ortodoncia de vanguardia y alineadores invisibles. Corrección precisa de la mordida de forma discreta.</p>
+                </div>
+
+                <!-- General (Imagen: Instrumental clínico moderno y pulcro) -->
+                <div class="group cursor-pointer md:mt-24">
+                    <div class="relative overflow-hidden mb-6 shadow-sm h-80">
+                        <img src="https://images.unsplash.com/photo-1600170311833-c2cf5280ce49?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Odontología General" class="w-full h-full object-cover transition duration-700 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-all duration-500"></div>
+                    </div>
+                    <p class="text-symetrie text-[0.65rem] font-semibold tracking-[0.2em] uppercase mb-2">03. Salud Integral</p>
+                    <h3 class="text-2xl font-serif mb-3 text-gray-900">Odontología General</h3>
+                    <p class="text-gray-500 font-light text-sm leading-relaxed mb-4">La base de la belleza es la salud. Profilaxis, restauraciones y prevención para mantener una boca sana.</p>
+                </div>
+            </div>
+            
+            <div class="text-center mt-16">
+                <a href="https://wa.link/jr8esi" target="_blank" class="inline-block border border-symetrie text-symetrie hover:bg-symetrie hover:text-white px-10 py-3.5 text-xs uppercase tracking-[0.15em] transition-colors duration-300">
+                    Solicitar Valoración
+                </a>
+            </div>
         </div>
-        <div class="doctor-photo-overlay">
-          <p class="doctor-name">Dra. Especialista</p>
-          <p class="doctor-specialty">Rehabilitación Oral · Implantología</p>
-          <p class="doctor-bio">Especialista en implantes y rehabilitación total. Restauramos tu sonrisa con los mejores materiales y técnicas avanzadas.</p>
+    </section>
+
+    <!-- Sección Experiencia / Instagram -->
+    <section id="experiencia" class="py-24 md:py-32 bg-white border-t border-gray-100">
+        <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16">
+                <div class="max-w-lg">
+                    <h2 class="text-4xl md:text-5xl font-serif text-gray-900 mb-4">Identidad Symétrie</h2>
+                    <p class="text-gray-500 font-light text-base">Inspiración, casos de éxito y el estilo de vida de pacientes que han transformado su confianza con nosotros.</p>
+                </div>
+                <a href="https://www.instagram.com/symetrieclinicadental?igsh=YWl1eTJ4cXF2cHQy" target="_blank" class="mt-8 md:mt-0 flex items-center gap-2 text-gray-900 hover:text-symetrie transition-colors text-xs uppercase tracking-[0.1em] font-medium border-b border-gray-900 pb-1 hover:border-symetrie">
+                    Seguir en Instagram <i class="fab fa-instagram text-sm"></i>
+                </a>
+            </div>
+
+            <!-- Grilla Estética (Fotos Femeninas High-End) -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4">
+                <a href="https://www.instagram.com/symetrieclinicadental?igsh=YWl1eTJ4cXF2cHQy" target="_blank" class="group relative block overflow-hidden aspect-[3/4] bg-gray-50">
+                    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Sonrisa de paciente" class="object-cover w-full h-full transition duration-1000 group-hover:scale-105 filter grayscale-[20%] group-hover:grayscale-0">
+                    <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex justify-center items-center">
+                        <i class="fab fa-instagram text-white text-2xl"></i>
+                    </div>
+                </a>
+                <a href="https://www.instagram.com/symetrieclinicadental?igsh=YWl1eTJ4cXF2cHQy" target="_blank" class="group relative block overflow-hidden aspect-[3/4] bg-gray-50">
+                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Caso de Estética" class="object-cover w-full h-full transition duration-1000 group-hover:scale-105 filter grayscale-[20%] group-hover:grayscale-0">
+                    <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex justify-center items-center">
+                        <i class="fab fa-instagram text-white text-2xl"></i>
+                    </div>
+                </a>
+                <a href="https://www.instagram.com/symetrieclinicadental?igsh=YWl1eTJ4cXF2cHQy" target="_blank" class="group relative block overflow-hidden aspect-[3/4] bg-gray-50 hidden md:block">
+                    <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Diseño de Sonrisa" class="object-cover w-full h-full transition duration-1000 group-hover:scale-105 filter grayscale-[20%] group-hover:grayscale-0">
+                    <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex justify-center items-center">
+                        <i class="fab fa-instagram text-white text-2xl"></i>
+                    </div>
+                </a>
+                <a href="https://www.instagram.com/symetrieclinicadental?igsh=YWl1eTJ4cXF2cHQy" target="_blank" class="group relative block overflow-hidden aspect-[3/4] bg-gray-50 hidden md:block">
+                    <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Detalle Estético" class="object-cover w-full h-full transition duration-1000 group-hover:scale-105 filter grayscale-[20%] group-hover:grayscale-0">
+                    <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex justify-center items-center">
+                        <i class="fab fa-instagram text-white text-2xl"></i>
+                    </div>
+                </a>
+            </div>
         </div>
-      </div>
-    </div>
+    </section>
 
-  </div>
-</section>
+    <!-- Formulario / Contacto (Minimalista) -->
+    <section class="py-24 bg-symetrie text-white relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-1/2 h-full opacity-10 bg-[url('https://images.unsplash.com/photo-1512413914440-622fcefc55df?ixlib=rb-4.0.3')] bg-cover bg-center"></div>
+        <div class="max-w-4xl mx-auto px-5 sm:px-6 lg:px-8 relative z-10 text-center">
+            <h2 class="text-4xl md:text-5xl font-serif mb-6">Inicia tu transformación</h2>
+            <p class="font-light text-white/80 mb-12 max-w-xl mx-auto">Déjanos tus datos o escríbenos directamente. Un especialista evaluará tu caso para diseñar un plan a tu medida.</p>
+            
+            <form onsubmit="submitForm(event)" class="bg-white/10 backdrop-blur-md p-8 md:p-12 border border-white/20 max-w-2xl mx-auto text-left">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                    <div>
+                        <input type="text" required class="w-full px-0 py-3 bg-transparent border-b border-white/30 focus:border-white outline-none transition-colors text-white placeholder-white/50 text-sm font-light" placeholder="Nombre completo">
+                    </div>
+                    <div>
+                        <input type="tel" required class="w-full px-0 py-3 bg-transparent border-b border-white/30 focus:border-white outline-none transition-colors text-white placeholder-white/50 text-sm font-light" placeholder="Número de WhatsApp">
+                    </div>
+                </div>
+                <div class="mb-8">
+                    <select required class="w-full px-0 py-3 bg-transparent border-b border-white/30 focus:border-white outline-none transition-colors text-white text-sm font-light appearance-none cursor-pointer">
+                        <option value="" class="text-gray-900">Motivo de consulta...</option>
+                        <option value="estetica" class="text-gray-900">Odontología Estética</option>
+                        <option value="ortodoncia" class="text-gray-900">Ortodoncia</option>
+                        <option value="general" class="text-gray-900">Odontología General</option>
+                    </select>
+                </div>
+                <button type="submit" class="w-full bg-white text-symetrie font-medium py-4 text-xs uppercase tracking-[0.2em] hover:bg-gray-50 transition-colors flex justify-center items-center group">
+                    <span id="btn-text">Agendar Cita</span>
+                </button>
+                <div id="success-msg" class="hidden mt-4 text-center text-sm font-light text-white/90">
+                    <i class="fas fa-check-circle mr-1"></i> Solicitud recibida con éxito.
+                </div>
+            </form>
+        </div>
+    </section>
 
-<!-- TESTIMONIOS -->
-<section class="testimonials" id="testimonios">
-  <div class="test-header">
-    <span class="section-tag">Pacientes felices</span>
-    <h2 class="section-title" style="color:white;">Lo que dicen de <em style="color:rgba(255,255,255,0.8);">nosotras</em></h2>
-  </div>
-  <div class="test-grid">
-    <div class="test-card">
-      <p class="test-quote">"Llegué muy nerviosa pero el equipo me hizo sentir completamente cómoda. Mi sonrisa quedó increíble, superó todas mis expectativas."</p>
-      <div class="test-author"><div class="test-avatar">MG</div><div><p class="test-name">María Gabriela L.</p><p class="test-stars">★★★★★</p></div></div>
-    </div>
-    <div class="test-card">
-      <p class="test-quote">"Mi ortodoncia express fue en 7 meses. No lo podía creer. La Dra. Stefany es increíble, muy profesional y el resultado fue perfecto."</p>
-      <div class="test-author"><div class="test-avatar">JP</div><div><p class="test-name">Juliana Pérez</p><p class="test-stars">★★★★★</p></div></div>
-    </div>
-    <div class="test-card">
-      <p class="test-quote">"Llevé a mis hijos y quedaron encantados. El ambiente es muy amigable. Definitivamente la mejor clínica dental en Pereira."</p>
-      <div class="test-author"><div class="test-avatar">AC</div><div><p class="test-name">Alejandra Cardona</p><p class="test-stars">★★★★★</p></div></div>
-    </div>
-  </div>
-</section>
+    <!-- Footer -->
+    <footer class="bg-[#1a1a1a] text-white pt-20 pb-10">
+        <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-12 border-b border-white/10 pb-16">
+            
+            <div>
+                <a href="#" class="inline-block mb-6">
+                    <span class="font-sans font-medium text-2xl tracking-[0.25em] text-white block">SYMÉTRIE</span>
+                    <span class="text-[0.6rem] uppercase tracking-[0.3em] text-gray-500 mt-1 block">Odontología Especializada</span>
+                </a>
+                <p class="text-gray-400 text-sm font-light leading-relaxed max-w-sm">
+                    Clínica boutique en Pereira. Elevamos la odontología a su máxima expresión estética y funcional.
+                </p>
+            </div>
 
-<!-- CITAS -->
-<section class="appointment" id="citas">
-  <div class="appt-left">
-    <span class="section-tag">Agenda tu cita</span>
-    <h2 class="section-title">Tu sonrisa<br>nos <em>importa</em></h2>
-    <p class="section-desc">Contáctanos para agendar tu valoración. El primer paso hacia la sonrisa que siempre quisiste.</p>
-    <div class="appt-info-block">
-      <div class="appt-info-item">
-        <div class="appt-icon"><svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg></div>
-        <div><p class="appt-info-label">Dirección</p><p class="appt-info-value">Av. Circunvalar Cll 7 # 14-18<br>Piso 1 Local 1, Pereira, Risaralda</p></div>
-      </div>
-      <div class="appt-info-item">
-        <div class="appt-icon"><svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg></div>
-        <div><p class="appt-info-label">Teléfono / WhatsApp</p><p class="appt-info-value"><a href="tel:3215619417" style="color:var(--teal);text-decoration:none;">321 561 9417</a><br><a href="https://wa.link/jr8esi" style="color:var(--teal);text-decoration:none;">wa.link/jr8esi</a></p></div>
-      </div>
-      <div class="appt-info-item">
-        <div class="appt-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
-        <div><p class="appt-info-label">Horario</p><p class="appt-info-value">Lunes – Viernes: 8:00am – 6:00pm<br>Sábados: 8:00am – 1:00pm</p></div>
-      </div>
-    </div>
-  </div>
-  <div class="appt-form">
-    <h3 class="form-title">Solicitar cita</h3>
-    <div class="form-row">
-      <div class="form-group"><label>Nombre</label><input type="text" id="nombre" placeholder="Tu nombre"></div>
-      <div class="form-group"><label>Apellido</label><input type="text" id="apellido" placeholder="Tu apellido"></div>
-    </div>
-    <div class="form-row">
-      <div class="form-group"><label>Teléfono / WhatsApp</label><input type="tel" id="telefono" placeholder="+57 300 000 0000"></div>
-      <div class="form-group"><label>Correo electrónico</label><input type="email" id="email" placeholder="correo@email.com"></div>
-    </div>
-    <div class="form-group"><label>Especialista de preferencia</label><div class="form-select-wrap"><select id="doctor"><option value="">Sin preferencia</option><option>Dra. Stefany Espinosa – Ortodoncia</option><option>Especialista en Estética</option><option>Especialista en Rehabilitación e Implantes</option></select></div></div>
-    <div class="form-group"><label>Servicio de interés</label><div class="form-select-wrap"><select id="servicio"><option value="">Selecciona un servicio</option><option>Valoración gratuita</option><option>Odontología General</option><option>Odontología Estética / Diseño de Sonrisa</option><option>Ortodoncia Express</option><option>Blanqueamiento Dental</option><option>Implantes Dentales</option><option>Rehabilitación Oral</option><option>Odontopediatría</option></select></div></div>
-    <div class="form-row">
-      <div class="form-group"><label>Fecha preferida</label><input type="date" id="fecha"></div>
-      <div class="form-group"><label>Hora preferida</label><div class="form-select-wrap"><select id="hora"><option>Mañana (8am–12pm)</option><option>Tarde (12pm–6pm)</option></select></div></div>
-    </div>
-    <div class="form-group"><label>Mensaje o síntomas (opcional)</label><textarea id="mensaje" placeholder="Cuéntanos brevemente tu caso..."></textarea></div>
-    <button class="form-submit" id="formBtn" onclick="submitForm()">Solicitar cita →</button>
-    <div id="success-msg">✓ ¡Gracias! Tu solicitud fue recibida. Te contactaremos por WhatsApp para confirmar tu cita.</div>
-    <p class="form-note">También puedes escribirnos directamente: <a href="https://wa.link/jr8esi" style="color:var(--teal);">wa.link/jr8esi</a> · <a href="tel:3215619417" style="color:var(--teal);">321 561 9417</a></p>
-  </div>
-</section>
+            <div>
+                <h4 class="font-serif italic text-xl mb-6 text-white/90">Contacto</h4>
+                <ul class="space-y-4 text-sm text-gray-400 font-light">
+                    <li class="flex items-start gap-3">
+                        <i class="fas fa-map-marker-alt mt-1 text-symetrie"></i>
+                        <span>Av. Circunvalar Cll 7 # 14-18<br>Piso 1 Local 1. Pereira, Risaralda</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <i class="fab fa-whatsapp text-symetrie"></i>
+                        <a href="https://wa.link/jr8esi" target="_blank" class="hover:text-white transition-colors">Agendar vía WhatsApp</a>
+                    </li>
+                </ul>
+            </div>
 
-<!-- FOOTER -->
-<footer>
-  <div class="footer-top">
-    <div class="footer-brand">
-      <div class="logo-circle"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.8)" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2" stroke-linecap="round"/></svg></div>
-      <p class="footer-brand-name">SYMÉTRIE</p>
-      <p class="footer-brand-sub">Odontología Especializada</p>
-      <p class="footer-brand-tagline">"Una sonrisa perfecta<br>a tu alcance"</p>
-    </div>
-    <div class="footer-col">
-      <h4>Servicios</h4>
-      <ul>
-        <li><a href="#servicios">Odontología General</a></li>
-        <li><a href="#servicios">Diseño de Sonrisa</a></li>
-        <li><a href="#servicios">Ortodoncia Express</a></li>
-        <li><a href="#servicios">Implantes Dentales</a></li>
-        <li><a href="#servicios">Rehabilitación Oral</a></li>
-        <li><a href="#servicios">Odontopediatría</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h4>Contacto</h4>
-      <ul>
-        <li><a href="tel:3215619417">📞 321 561 9417</a></li>
-        <li><a href="https://wa.link/jr8esi">💬 wa.link/jr8esi</a></li>
-        <li><a href="https://www.instagram.com/symetrieclinicadental">@symetrieclinicadental</a></li>
-        <li><a href="#citas">Av. Circunvalar Cll 7 # 14-18, Pereira</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <p>© 2025 Symétrie Odontología Especializada · Pereira, Risaralda</p>
-    <div class="social-links">
-      <a href="https://www.instagram.com/symetrieclinicadental" title="Instagram">IG</a>
-      <a href="https://wa.link/jr8esi" title="WhatsApp">WA</a>
-      <a href="https://www.facebook.com/symetrie.clinicadental/" title="Facebook">FB</a>
-    </div>
-  </div>
-</footer>
+            <div>
+                <h4 class="font-serif italic text-xl mb-6 text-white/90">Conéctate</h4>
+                <div class="flex gap-4">
+                    <a href="https://www.instagram.com/symetrieclinicadental?igsh=YWl1eTJ4cXF2cHQy" target="_blank" class="w-10 h-10 border border-white/20 flex items-center justify-center hover:bg-symetrie hover:border-symetrie transition-all text-white">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 mt-10 flex flex-col md:flex-row justify-between items-center text-[0.65rem] uppercase tracking-[0.1em] text-gray-500 font-light">
+            <p>&copy; 2026 Symétrie Odontología. Todos los derechos reservados.</p>
+            <p class="mt-2 md:mt-0">Pereira, Colombia.</p>
+        </div>
+    </footer>
 
-<script>
-const hamburger = document.getElementById('hamburger');
-const mobileMenu = document.getElementById('mobileMenu');
-hamburger.addEventListener('click', () => {
-  hamburger.classList.toggle('open');
-  mobileMenu.classList.toggle('open');
-});
-function closeMenu() {
-  hamburger.classList.remove('open');
-  mobileMenu.classList.remove('open');
-}
-window.addEventListener('scroll', () => {
-  document.getElementById('navbar').style.boxShadow =
-    window.scrollY > 40 ? '0 2px 20px rgba(0,0,0,0.07)' : 'none';
-});
-function submitForm() {
-  const nombre = document.getElementById('nombre').value.trim();
-  const tel = document.getElementById('telefono').value.trim();
-  const servicio = document.getElementById('servicio').value;
-  if (!nombre || !tel || !servicio) {
-    alert('Por favor completa nombre, teléfono y servicio de interés.');
-    return;
-  }
-  const btn = document.getElementById('formBtn');
-  btn.textContent = 'Enviando...';
-  btn.style.background = '#aaa';
-  setTimeout(() => {
-    document.getElementById('success-msg').style.display = 'block';
-    btn.style.display = 'none';
-    document.querySelectorAll('.form-group input,.form-group select,.form-group textarea')
-      .forEach(el => { el.value = ''; el.disabled = true; });
-  }, 900);
-}
-</script>
+    <script>
+        function submitForm(e) {
+            e.preventDefault();
+            const btn = e.target.querySelector('button[type="submit"]');
+            const btnText = document.getElementById('btn-text');
+            const successMsg = document.getElementById('success-msg');
+            
+            btnText.innerText = 'PROCESANDO...';
+            btn.classList.add('opacity-80', 'cursor-not-allowed');
+            
+            setTimeout(() => {
+                successMsg.classList.remove('hidden');
+                e.target.reset();
+                btnText.innerText = 'AGENDAR CITA';
+                btn.classList.remove('opacity-80', 'cursor-not-allowed');
+                
+                setTimeout(() => { successMsg.classList.add('hidden'); }, 4000);
+            }, 1500);
+        }
+    </script>
 </body>
 </html>
