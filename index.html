@@ -7,216 +7,127 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
 :root {
-  --teal: #2e8b84;
-  --teal-dark: #1a5f5a;
-  --teal-light: #e8f5f4;
-  --gold: #c9a96e;
-  --cream: #faf8f5;
-  --dark: #1a1a1a;
-  --gray: #6b6b6b;
-  --white: #ffffff;
-  --serif: 'Cormorant Garamond', Georgia, serif;
-  --sans: 'DM Sans', sans-serif;
+  --teal: #2e8b84; --teal-dark: #1a5f5a; --teal-light: #e8f5f4;
+  --gold: #c9a96e; --cream: #faf8f5; --dark: #1a1a1a; --gray: #6b6b6b;
+  --serif: 'Cormorant Garamond', Georgia, serif; --sans: 'DM Sans', sans-serif;
 }
-
 html { scroll-behavior: smooth; }
 body { font-family: var(--sans); background: var(--cream); color: var(--dark); overflow-x: hidden; }
 
-/* ===== NAV ===== */
+/* NAV */
 nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 200;
   display: flex; align-items: center; justify-content: space-between;
-  padding: 1rem 2rem;
-  background: rgba(250,248,245,0.95);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(46,139,132,0.15);
+  padding: 1rem 2rem; background: rgba(250,248,245,0.95);
+  backdrop-filter: blur(12px); border-bottom: 1px solid rgba(46,139,132,0.15);
   transition: box-shadow 0.3s;
 }
-
 .nav-logo { display: flex; align-items: center; gap: 0.6rem; text-decoration: none; }
-.nav-logo-circle {
-  width: 36px; height: 36px; background: var(--teal); border-radius: 50%;
-  display: flex; align-items: center; justify-content: center; flex-shrink: 0;
-}
+.nav-logo-circle { width: 36px; height: 36px; background: var(--teal); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
 .nav-logo-circle svg { width: 20px; height: 20px; }
 .nav-logo-text { font-family: var(--serif); font-size: 1.3rem; font-weight: 300; letter-spacing: 0.08em; color: var(--teal-dark); }
-
 .nav-links { display: flex; align-items: center; gap: 2rem; list-style: none; }
-.nav-links a {
-  text-decoration: none; font-size: 0.8rem; font-weight: 400;
-  letter-spacing: 0.1em; text-transform: uppercase; color: var(--gray); transition: color 0.2s;
-}
+.nav-links a { text-decoration: none; font-size: 0.8rem; font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gray); transition: color 0.2s; }
 .nav-links a:hover { color: var(--teal); }
-.nav-cta {
-  background: var(--teal) !important; color: white !important;
-  padding: 0.5rem 1.3rem !important; border-radius: 2rem !important; letter-spacing: 0.06em !important;
-}
+.nav-cta { background: var(--teal) !important; color: white !important; padding: 0.5rem 1.3rem !important; border-radius: 2rem !important; }
 .nav-cta:hover { background: var(--teal-dark) !important; color: white !important; }
-
-/* Hamburger */
-.hamburger {
-  display: none; flex-direction: column; gap: 5px; cursor: pointer;
-  background: none; border: none; padding: 4px;
-}
-.hamburger span {
-  display: block; width: 24px; height: 2px; background: var(--teal-dark);
-  transition: all 0.3s; border-radius: 2px;
-}
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+.hamburger span { display: block; width: 24px; height: 2px; background: var(--teal-dark); transition: all 0.3s; border-radius: 2px; }
 .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
 .hamburger.open span:nth-child(2) { opacity: 0; }
 .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-
-.mobile-menu {
-  display: none; position: fixed; top: 62px; left: 0; right: 0; z-index: 199;
-  background: rgba(250,248,245,0.98); backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(46,139,132,0.15);
-  flex-direction: column; padding: 1.5rem 2rem; gap: 1.2rem;
-}
+.mobile-menu { display: none; position: fixed; top: 62px; left: 0; right: 0; z-index: 199; background: rgba(250,248,245,0.98); backdrop-filter: blur(12px); border-bottom: 1px solid rgba(46,139,132,0.15); flex-direction: column; padding: 1.5rem 2rem; gap: 1.2rem; }
 .mobile-menu.open { display: flex; }
-.mobile-menu a {
-  text-decoration: none; font-size: 1rem; color: var(--dark);
-  letter-spacing: 0.05em; padding: 0.4rem 0;
-  border-bottom: 1px solid rgba(46,139,132,0.1);
-}
-.mobile-menu a:last-child {
-  background: var(--teal); color: white; text-align: center;
-  padding: 0.8rem; border-radius: 2rem; border: none; margin-top: 0.5rem;
-}
+.mobile-menu a { text-decoration: none; font-size: 1rem; color: var(--dark); padding: 0.4rem 0; border-bottom: 1px solid rgba(46,139,132,0.1); }
+.mobile-menu a:last-child { background: var(--teal); color: white; text-align: center; padding: 0.8rem; border-radius: 2rem; border: none; margin-top: 0.5rem; }
 
-/* ===== HERO ===== */
-.hero {
-  min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr;
-  padding-top: 62px; overflow: hidden;
-}
-.hero-left {
-  display: flex; flex-direction: column; justify-content: center;
-  padding: 4rem 3rem 4rem 5rem;
-}
-.hero-tag {
-  font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase;
-  color: var(--teal); margin-bottom: 1.2rem; font-weight: 500;
-}
-.hero-title {
-  font-family: var(--serif); font-size: clamp(2.8rem, 4.5vw, 5rem);
-  font-weight: 300; line-height: 1.05; color: var(--dark); margin-bottom: 1rem;
-}
+/* HERO */
+.hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; padding-top: 62px; overflow: hidden; }
+.hero-left { display: flex; flex-direction: column; justify-content: center; padding: 4rem 3rem 4rem 5rem; }
+.hero-tag { font-size: 0.72rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--teal); margin-bottom: 1.2rem; font-weight: 500; }
+.hero-title { font-family: var(--serif); font-size: clamp(2.8rem, 4.5vw, 5rem); font-weight: 300; line-height: 1.05; color: var(--dark); margin-bottom: 1rem; }
 .hero-title em { font-style: italic; color: var(--teal); }
-.hero-subtitle {
-  font-family: var(--serif); font-size: 1rem; color: var(--gray);
-  font-weight: 300; margin-bottom: 2.5rem; line-height: 1.7; max-width: 380px;
-}
+.hero-subtitle { font-family: var(--serif); font-size: 1rem; color: var(--gray); font-weight: 300; margin-bottom: 2.5rem; line-height: 1.7; max-width: 380px; }
 .hero-actions { display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; }
-
-.btn-primary {
-  background: var(--teal); color: white; padding: 0.85rem 1.8rem;
-  border-radius: 3rem; text-decoration: none; font-size: 0.85rem;
-  font-weight: 500; letter-spacing: 0.05em; transition: all 0.25s; display: inline-block;
-}
+.btn-primary { background: var(--teal); color: white; padding: 0.85rem 1.8rem; border-radius: 3rem; text-decoration: none; font-size: 0.85rem; font-weight: 500; letter-spacing: 0.05em; transition: all 0.25s; display: inline-block; }
 .btn-primary:hover { background: var(--teal-dark); transform: translateY(-1px); }
-.btn-outline {
-  color: var(--teal); padding: 0.85rem 1.6rem; border-radius: 3rem;
-  text-decoration: none; font-size: 0.85rem; font-weight: 400;
-  letter-spacing: 0.05em; border: 1.5px solid var(--teal); transition: all 0.25s; display: inline-block;
-}
+.btn-outline { color: var(--teal); padding: 0.85rem 1.6rem; border-radius: 3rem; text-decoration: none; font-size: 0.85rem; border: 1.5px solid var(--teal); transition: all 0.25s; display: inline-block; }
 .btn-outline:hover { background: var(--teal-light); }
 
+/* HERO RIGHT con foto real */
 .hero-right {
   position: relative; overflow: hidden;
-  background: linear-gradient(135deg, var(--teal) 0%, #1a5f5a 50%, #0d3d3a 100%);
-  display: flex; align-items: center; justify-content: center;
 }
-.hero-decor {
-  position: absolute; border: 1px solid rgba(255,255,255,0.08); border-radius: 50%;
-  top: 50%; left: 50%; transform: translate(-50%,-50%);
+.hero-right-img {
+  width: 100%; height: 100%; object-fit: cover; object-position: center top;
+  display: block;
 }
-.hero-logo-large {
-  width: 240px; height: 240px; border: 2px solid rgba(255,255,255,0.3);
-  border-radius: 50%; display: flex; flex-direction: column;
-  align-items: center; justify-content: center; gap: 0.4rem; position: relative; z-index: 2;
+.hero-right-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to right, rgba(250,248,245,0.15) 0%, transparent 40%),
+              linear-gradient(to top, rgba(26,95,90,0.5) 0%, transparent 50%);
 }
-.hero-logo-large .logo-name {
-  font-family: var(--serif); font-size: 2rem; font-weight: 300;
-  letter-spacing: 0.12em; color: white;
+.hero-phone-badge {
+  position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
+  background: var(--teal); color: white; padding: 0.7rem 1.5rem;
+  border-radius: 3rem; font-size: 0.85rem; font-weight: 500;
+  letter-spacing: 0.05em; white-space: nowrap; text-decoration: none;
+  transition: background 0.2s;
 }
-.hero-logo-large .logo-smile {
-  width: 90px; border-bottom: 2px solid rgba(255,255,255,0.7);
-  border-radius: 0 0 50px 50px; height: 18px;
-}
-.hero-logo-large .logo-sub {
-  font-size: 0.6rem; letter-spacing: 0.22em; color: rgba(255,255,255,0.7);
-  text-transform: uppercase; text-align: center;
-}
+.hero-phone-badge:hover { background: var(--teal-dark); }
 
-/* ===== STATS ===== */
-.stats-bar {
-  background: var(--teal-dark); padding: 1.8rem 4rem;
-  display: grid; grid-template-columns: repeat(4,1fr); gap: 0.5rem;
-}
-.stat-item {
-  text-align: center; border-right: 1px solid rgba(255,255,255,0.15); padding: 0.5rem;
-}
+/* STATS */
+.stats-bar { background: var(--teal-dark); padding: 1.8rem 4rem; display: grid; grid-template-columns: repeat(4,1fr); gap: 0.5rem; }
+.stat-item { text-align: center; border-right: 1px solid rgba(255,255,255,0.15); padding: 0.5rem; }
 .stat-item:last-child { border-right: none; }
 .stat-num { font-family: var(--serif); font-size: 2rem; font-weight: 300; color: white; line-height: 1; margin-bottom: 0.3rem; }
 .stat-label { font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.6); }
 
-/* ===== SECTION COMMON ===== */
+/* SECTION */
 .section-tag { font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--teal); font-weight: 500; margin-bottom: 0.8rem; display: block; }
 .section-title { font-family: var(--serif); font-size: clamp(1.8rem, 3vw, 3rem); font-weight: 300; line-height: 1.1; color: var(--dark); margin-bottom: 1rem; }
 .section-title em { font-style: italic; color: var(--teal); }
 .section-desc { font-size: 0.92rem; color: var(--gray); line-height: 1.8; max-width: 480px; margin-bottom: 3rem; }
 
-/* ===== SERVICIOS ===== */
+/* SERVICIOS */
 .services { padding: 5rem 4rem; background: var(--cream); }
-.services-grid {
-  display: grid; grid-template-columns: repeat(3,1fr);
-  gap: 1.5px; background: rgba(46,139,132,0.15);
-  border: 1.5px solid rgba(46,139,132,0.15);
-}
-.service-card {
-  background: var(--cream); padding: 2rem 1.8rem;
-  transition: background 0.3s; cursor: default; position: relative; overflow: hidden;
-}
-.service-card::before {
-  content: ''; position: absolute; bottom: 0; left: 0;
-  width: 0; height: 3px; background: var(--teal); transition: width 0.3s;
-}
+.services-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5px; background: rgba(46,139,132,0.15); border: 1.5px solid rgba(46,139,132,0.15); }
+.service-card { background: var(--cream); padding: 2rem 1.8rem; transition: background 0.3s; position: relative; overflow: hidden; }
+.service-card::before { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 3px; background: var(--teal); transition: width 0.3s; }
 .service-card:hover::before { width: 100%; }
 .service-card:hover { background: white; }
-.service-icon {
-  width: 44px; height: 44px; background: var(--teal-light); border-radius: 50%;
-  display: flex; align-items: center; justify-content: center; margin-bottom: 1.2rem;
-}
+.service-icon { width: 44px; height: 44px; background: var(--teal-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 1.2rem; }
 .service-icon svg { width: 20px; height: 20px; stroke: var(--teal); fill: none; stroke-width: 1.5; }
 .service-name { font-family: var(--serif); font-size: 1.2rem; font-weight: 400; color: var(--dark); margin-bottom: 0.6rem; }
 .service-desc { font-size: 0.83rem; color: var(--gray); line-height: 1.7; }
 
-/* ===== EQUIPO ===== */
+/* EQUIPO */
 .team { padding: 5rem 4rem; background: white; }
 .team-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 3rem; flex-wrap: wrap; gap: 1.5rem; }
 .team-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1.5rem; }
 .doctor-card { position: relative; overflow: hidden; cursor: default; }
-.doctor-photo { width: 100%; aspect-ratio: 3/4; position: relative; overflow: hidden; }
-.doctor-photo-placeholder {
-  width: 100%; height: 100%; display: flex; flex-direction: column;
-  align-items: center; justify-content: flex-end; padding-bottom: 2rem;
-  background: linear-gradient(180deg, #c8e8e6 0%, #a0d4d1 100%);
+.doctor-photo { width: 100%; aspect-ratio: 3/4; position: relative; overflow: hidden; background: var(--teal-light); }
+
+/* Foto real */
+.doctor-photo img {
+  width: 100%; height: 100%; object-fit: cover; object-position: center top;
+  display: block; transition: transform 0.5s ease;
 }
+.doctor-card:hover .doctor-photo img { transform: scale(1.04); }
+
+/* Placeholder para doctoras sin foto */
+.doctor-photo-placeholder { width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; padding-bottom: 2rem; background: linear-gradient(180deg, #c8e8e6 0%, #a0d4d1 100%); }
 .doctor-silhouette { width: 110px; fill: var(--teal-dark); opacity: 0.4; }
-.doctor-photo-overlay {
-  position: absolute; bottom: 0; left: 0; right: 0; height: 55%;
-  background: linear-gradient(to top, rgba(26,95,90,0.9) 0%, transparent 100%);
-  display: flex; flex-direction: column; justify-content: flex-end;
-  padding: 1.2rem; transition: height 0.3s;
-}
+
+.doctor-photo-overlay { position: absolute; bottom: 0; left: 0; right: 0; height: 55%; background: linear-gradient(to top, rgba(26,95,90,0.9) 0%, transparent 100%); display: flex; flex-direction: column; justify-content: flex-end; padding: 1.2rem; transition: height 0.3s; }
 .doctor-card:hover .doctor-photo-overlay { height: 70%; }
 .doctor-name { font-family: var(--serif); font-size: 1.25rem; font-weight: 400; color: white; margin-bottom: 0.2rem; }
 .doctor-specialty { font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(255,255,255,0.75); margin-bottom: 0.6rem; }
 .doctor-bio { font-size: 0.8rem; color: rgba(255,255,255,0.85); line-height: 1.6; max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
 .doctor-card:hover .doctor-bio { max-height: 120px; }
 
-/* ===== TESTIMONIOS ===== */
+/* TESTIMONIOS */
 .testimonials { padding: 5rem 4rem; background: var(--teal); }
 .test-header { text-align: center; margin-bottom: 3rem; }
 .test-header .section-tag { color: rgba(255,255,255,0.7); }
@@ -229,7 +140,7 @@ nav {
 .test-name { font-size: 0.83rem; font-weight: 500; color: white; }
 .test-stars { color: var(--gold); font-size: 0.7rem; letter-spacing: 2px; }
 
-/* ===== CITAS ===== */
+/* CITAS */
 .appointment { padding: 5rem 4rem; background: var(--cream); display: grid; grid-template-columns: 1fr 1.2fr; gap: 5rem; align-items: start; }
 .appt-left { position: sticky; top: 5rem; }
 .appt-info-block { margin-top: 2rem; }
@@ -238,33 +149,22 @@ nav {
 .appt-icon svg { width: 17px; height: 17px; stroke: var(--teal); fill: none; stroke-width: 1.8; }
 .appt-info-label { font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--teal); font-weight: 500; margin-bottom: 0.2rem; }
 .appt-info-value { font-size: 0.88rem; color: var(--dark); line-height: 1.5; }
-
 .appt-form { background: white; padding: 2.5rem; border: 1px solid rgba(46,139,132,0.2); }
 .form-title { font-family: var(--serif); font-size: 1.7rem; font-weight: 300; color: var(--dark); margin-bottom: 1.8rem; }
-.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; margin-bottom: 0; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 0.8rem; }
 .form-group { margin-bottom: 0.9rem; }
 .form-group label { display: block; font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gray); margin-bottom: 0.4rem; font-weight: 500; }
-.form-group input, .form-group select, .form-group textarea {
-  width: 100%; padding: 0.75rem 0.9rem; border: 1px solid #ddd;
-  background: var(--cream); font-family: var(--sans); font-size: 0.88rem;
-  color: var(--dark); outline: none; transition: border-color 0.2s;
-  border-radius: 0; appearance: none; -webkit-appearance: none;
-}
+.form-group input, .form-group select, .form-group textarea { width: 100%; padding: 0.75rem 0.9rem; border: 1px solid #ddd; background: var(--cream); font-family: var(--sans); font-size: 0.88rem; color: var(--dark); outline: none; transition: border-color 0.2s; border-radius: 0; appearance: none; -webkit-appearance: none; }
 .form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color: var(--teal); background: white; }
 .form-group textarea { resize: vertical; min-height: 90px; }
 .form-select-wrap { position: relative; }
 .form-select-wrap::after { content: '▾'; position: absolute; right: 0.9rem; top: 50%; transform: translateY(-50%); color: var(--teal); pointer-events: none; font-size: 0.75rem; }
-.form-submit {
-  width: 100%; padding: 0.95rem; background: var(--teal); color: white; border: none;
-  font-family: var(--sans); font-size: 0.83rem; font-weight: 500;
-  letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer;
-  transition: background 0.25s; margin-top: 0.4rem;
-}
+.form-submit { width: 100%; padding: 0.95rem; background: var(--teal); color: white; border: none; font-family: var(--sans); font-size: 0.83rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; cursor: pointer; transition: background 0.25s; margin-top: 0.4rem; }
 .form-submit:hover { background: var(--teal-dark); }
 .form-note { font-size: 0.73rem; color: var(--gray); margin-top: 0.8rem; text-align: center; line-height: 1.6; }
 #success-msg { display: none; background: var(--teal-light); border: 1px solid var(--teal); padding: 1rem; text-align: center; margin-top: 0.8rem; font-size: 0.88rem; color: var(--teal-dark); }
 
-/* ===== FOOTER ===== */
+/* FOOTER */
 footer { background: var(--teal-dark); color: white; padding: 4rem 4rem 2rem; }
 .footer-top { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 3rem; padding-bottom: 2.5rem; border-bottom: 1px solid rgba(255,255,255,0.15); }
 .footer-brand .logo-circle { width: 40px; height: 40px; border: 1.5px solid rgba(255,255,255,0.5); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 0.8rem; }
@@ -282,7 +182,7 @@ footer { background: var(--teal-dark); color: white; padding: 4rem 4rem 2rem; }
 .social-links a { width: 34px; height: 34px; border: 1px solid rgba(255,255,255,0.25); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.7); text-decoration: none; font-size: 0.72rem; transition: all 0.2s; }
 .social-links a:hover { background: rgba(255,255,255,0.15); color: white; }
 
-/* ===== ANIMATIONS ===== */
+/* ANIMATIONS */
 @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
 .hero-left > * { animation: fadeUp 0.7s ease forwards; opacity: 0; }
 .hero-left > *:nth-child(1) { animation-delay: 0.1s; }
@@ -291,11 +191,10 @@ footer { background: var(--teal-dark); color: white; padding: 4rem 4rem 2rem; }
 .hero-left > *:nth-child(4) { animation-delay: 0.55s; }
 .hero-left > *:nth-child(5) { animation-delay: 0.7s; }
 
-/* ===== TABLET (max 1024px) ===== */
+/* TABLET */
 @media (max-width: 1024px) {
   nav { padding: 1rem 1.8rem; }
   .nav-links { gap: 1.4rem; }
-  .hero { grid-template-columns: 1fr 1fr; }
   .hero-left { padding: 3rem 2rem 3rem 2.5rem; }
   .stats-bar { padding: 1.5rem 2rem; }
   .stat-num { font-size: 1.6rem; }
@@ -311,70 +210,44 @@ footer { background: var(--teal-dark); color: white; padding: 4rem 4rem 2rem; }
   .footer-top .footer-brand { grid-column: 1 / -1; }
 }
 
-/* ===== MOBILE (max 768px) ===== */
+/* MOBILE */
 @media (max-width: 768px) {
-  /* Nav mobile */
   nav { padding: 0.9rem 1.2rem; }
   .nav-links { display: none; }
   .hamburger { display: flex; }
-
-  /* Hero mobile: stack vertical */
   .hero { grid-template-columns: 1fr; min-height: auto; }
-  .hero-left { padding: 2.5rem 1.5rem 2.5rem; order: 2; }
+  .hero-left { padding: 2.5rem 1.5rem; order: 2; }
   .hero-title { font-size: clamp(2.2rem, 8vw, 3rem); }
   .hero-subtitle { font-size: 0.95rem; max-width: 100%; }
-  .hero-right { order: 1; min-height: 300px; }
-  .hero-logo-large { width: 180px; height: 180px; }
-  .hero-logo-large .logo-name { font-size: 1.5rem; }
-  .hero-logo-large .logo-smile { width: 70px; }
+  .hero-right { order: 1; min-height: 320px; }
   .hero-actions { flex-direction: column; align-items: stretch; }
   .btn-primary, .btn-outline { text-align: center; }
-
-  /* Stats: 2 columns */
   .stats-bar { grid-template-columns: repeat(2,1fr); padding: 1.2rem 1.5rem; }
   .stat-item:nth-child(2) { border-right: none; }
   .stat-item:nth-child(3) { border-right: 1px solid rgba(255,255,255,0.15); }
   .stat-num { font-size: 1.5rem; }
-
-  /* Sections padding */
   .services { padding: 3.5rem 1.5rem; }
-  .team { padding: 3.5rem 1.5rem; }
-  .testimonials { padding: 3.5rem 1.5rem; }
-  .appointment { padding: 3.5rem 1.5rem; }
-  footer { padding: 3rem 1.5rem 1.5rem; }
-
-  /* Services: 1 column */
   .services-grid { grid-template-columns: 1fr; }
-
-  /* Team: 1 column */
+  .team { padding: 3.5rem 1.5rem; }
   .team-grid { grid-template-columns: 1fr; max-width: 380px; margin: 0 auto; }
   .team-header { flex-direction: column; align-items: flex-start; }
   .team-header .btn-primary { width: 100%; text-align: center; }
-
-  /* Testimonios: 1 column */
+  .testimonials { padding: 3.5rem 1.5rem; }
   .test-grid { grid-template-columns: 1fr; }
-
-  /* Citas: stack */
-  .appointment { grid-template-columns: 1fr; gap: 2rem; }
+  .appointment { padding: 3.5rem 1.5rem; grid-template-columns: 1fr; gap: 2rem; }
   .appt-left { position: static; }
   .form-row { grid-template-columns: 1fr; }
   .appt-form { padding: 1.8rem 1.2rem; }
-
-  /* Footer */
+  footer { padding: 3rem 1.5rem 1.5rem; }
   .footer-top { grid-template-columns: 1fr; gap: 2rem; }
   .footer-bottom { flex-direction: column; align-items: flex-start; gap: 0.8rem; }
-
-  /* Section title */
   .section-title { font-size: clamp(1.6rem, 6vw, 2.2rem); }
+  .hero-phone-badge { font-size: 0.78rem; padding: 0.6rem 1.2rem; }
 }
 
-/* ===== SMALL MOBILE (max 400px) ===== */
 @media (max-width: 400px) {
   .hero-title { font-size: 2rem; }
-  .hero-logo-large { width: 150px; height: 150px; }
-  .hero-logo-large .logo-name { font-size: 1.2rem; }
   .stat-num { font-size: 1.3rem; }
-  .stat-label { font-size: 0.58rem; }
 }
 </style>
 </head>
@@ -422,13 +295,9 @@ footer { background: var(--teal-dark); color: white; padding: 4rem 4rem 2rem; }
     </div>
   </div>
   <div class="hero-right">
-    <div class="hero-decor" style="width:350px;height:350px;"></div>
-    <div class="hero-decor" style="width:500px;height:500px;border-color:rgba(255,255,255,0.04);"></div>
-    <div class="hero-logo-large">
-      <span class="logo-name">SYMÉTRIE</span>
-      <div class="logo-smile"></div>
-      <span class="logo-sub">Odontología<br>Especializada</span>
-    </div>
+    <img class="hero-right-img" src="foto-hero.jpg" alt="Odontóloga Symétrie Pereira">
+    <div class="hero-right-overlay"></div>
+    <a href="tel:3215619417" class="hero-phone-badge">📞 321 561 9417</a>
   </div>
 </section>
 
@@ -458,8 +327,8 @@ footer { background: var(--teal-dark); color: white; padding: 4rem 4rem 2rem; }
     </div>
     <div class="service-card">
       <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M12 3C7 3 3 7 3 12s4 9 9 9 9-4 9-9-4-9-9-9z"/><path d="M9 12h6M12 9v6"/></svg></div>
-      <h3 class="service-name">Ortodoncia</h3>
-      <p class="service-desc">Ortodoncia tradicional y alineadores transparentes para corregir la posición dental. Tratamientos para niños, jóvenes y adultos.</p>
+      <h3 class="service-name">Ortodoncia Express</h3>
+      <p class="service-desc">Planes desde 6 meses. No más años con brackets. Ortodoncia tradicional y alineadores transparentes para todas las edades.</p>
     </div>
     <div class="service-card">
       <div class="service-icon"><svg viewBox="0 0 24 24"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg></div>
@@ -489,42 +358,47 @@ footer { background: var(--teal-dark); color: white; padding: 4rem 4rem 2rem; }
     <a href="#citas" class="btn-primary">Agendar con una especialista</a>
   </div>
   <div class="team-grid">
+
+    <!-- Dra. Stefany — foto real -->
     <div class="doctor-card">
       <div class="doctor-photo">
-        <div class="doctor-photo-placeholder">
-          <svg class="doctor-silhouette" viewBox="0 0 120 160" xmlns="http://www.w3.org/2000/svg"><ellipse cx="60" cy="45" rx="28" ry="32"/><path d="M15 160 Q20 100 60 95 Q100 100 105 160Z"/></svg>
-        </div>
+        <img src="dra-stefany.jpg" alt="Dra. Stefany Espinosa — Ortodoncia">
         <div class="doctor-photo-overlay">
-          <p class="doctor-name">Dra. Valentina Ríos</p>
-          <p class="doctor-specialty">Odontología Estética · Diseño de Sonrisa</p>
-          <p class="doctor-bio">Especialista en transformación de sonrisas con más de 8 años de experiencia. Formada en la Universidad del Valle con diplomado en Estética Dental Avanzada.</p>
+          <p class="doctor-name">Dra. Stefany Espinosa</p>
+          <p class="doctor-specialty">Ortodoncia · Ortopedia Maxilar</p>
+          <p class="doctor-bio">Odontóloga especialista en ortodoncia y ortopedia maxilar. Planes express desde 6 meses. Apasionada por transformar sonrisas de forma rápida y efectiva.</p>
         </div>
       </div>
     </div>
+
+    <!-- Dra. 2 — placeholder -->
     <div class="doctor-card">
       <div class="doctor-photo">
         <div class="doctor-photo-placeholder" style="background:linear-gradient(180deg,#b8dbd9 0%,#8ec5c2 100%);">
-          <svg class="doctor-silhouette" viewBox="0 0 120 160" xmlns="http://www.w3.org/2000/svg"><ellipse cx="60" cy="45" rx="26" ry="30"/><path d="M15 160 Q20 100 60 95 Q100 100 105 160Z"/></svg>
+          <svg class="doctor-silhouette" viewBox="0 0 120 160"><ellipse cx="60" cy="45" rx="26" ry="30"/><path d="M15 160 Q20 100 60 95 Q100 100 105 160Z"/></svg>
         </div>
         <div class="doctor-photo-overlay">
-          <p class="doctor-name">Dra. Camila Montoya</p>
-          <p class="doctor-specialty">Ortodoncia · Ortopedia Maxilar</p>
-          <p class="doctor-bio">Ortodoncista certificada con especialización en Bogotá. Experta en alineadores invisibles y ortodoncia interceptiva en niños.</p>
+          <p class="doctor-name">Dra. Especialista</p>
+          <p class="doctor-specialty">Odontología Estética · Diseño de Sonrisa</p>
+          <p class="doctor-bio">Especialista en transformación de sonrisas. Experta en carillas de porcelana, blanqueamiento y armonización orofacial.</p>
         </div>
       </div>
     </div>
+
+    <!-- Dra. 3 — placeholder -->
     <div class="doctor-card">
       <div class="doctor-photo">
         <div class="doctor-photo-placeholder" style="background:linear-gradient(180deg,#d0e8e7 0%,#9ecfcc 100%);">
-          <svg class="doctor-silhouette" viewBox="0 0 120 160" xmlns="http://www.w3.org/2000/svg"><ellipse cx="60" cy="43" rx="27" ry="31"/><path d="M15 160 Q20 100 60 95 Q100 100 105 160Z"/></svg>
+          <svg class="doctor-silhouette" viewBox="0 0 120 160"><ellipse cx="60" cy="43" rx="27" ry="31"/><path d="M15 160 Q20 100 60 95 Q100 100 105 160Z"/></svg>
         </div>
         <div class="doctor-photo-overlay">
-          <p class="doctor-name">Dra. Sara Ospina</p>
+          <p class="doctor-name">Dra. Especialista</p>
           <p class="doctor-specialty">Rehabilitación Oral · Implantología</p>
-          <p class="doctor-bio">Especialista en implantes y rehabilitación total. Miembro de la Asociación Colombiana de Implantología con más de 600 implantes realizados.</p>
+          <p class="doctor-bio">Especialista en implantes y rehabilitación total. Restauramos tu sonrisa con los mejores materiales y técnicas avanzadas.</p>
         </div>
       </div>
     </div>
+
   </div>
 </section>
 
@@ -540,11 +414,11 @@ footer { background: var(--teal-dark); color: white; padding: 4rem 4rem 2rem; }
       <div class="test-author"><div class="test-avatar">MG</div><div><p class="test-name">María Gabriela L.</p><p class="test-stars">★★★★★</p></div></div>
     </div>
     <div class="test-card">
-      <p class="test-quote">"El diseño de sonrisa que me hicieron cambió mi vida. Ahora no paro de sonreír. La Dra. Valentina es extraordinaria en lo que hace."</p>
+      <p class="test-quote">"Mi ortodoncia express fue en 7 meses. No lo podía creer. La Dra. Stefany es increíble, muy profesional y el resultado fue perfecto."</p>
       <div class="test-author"><div class="test-avatar">JP</div><div><p class="test-name">Juliana Pérez</p><p class="test-stars">★★★★★</p></div></div>
     </div>
     <div class="test-card">
-      <p class="test-quote">"Llevé a mis hijos y quedaron encantados. El ambiente es muy amigable para los niños. Definitivamente la mejor clínica en Pereira."</p>
+      <p class="test-quote">"Llevé a mis hijos y quedaron encantados. El ambiente es muy amigable. Definitivamente la mejor clínica dental en Pereira."</p>
       <div class="test-author"><div class="test-avatar">AC</div><div><p class="test-name">Alejandra Cardona</p><p class="test-stars">★★★★★</p></div></div>
     </div>
   </div>
@@ -563,7 +437,7 @@ footer { background: var(--teal-dark); color: white; padding: 4rem 4rem 2rem; }
       </div>
       <div class="appt-info-item">
         <div class="appt-icon"><svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg></div>
-        <div><p class="appt-info-label">WhatsApp</p><p class="appt-info-value"><a href="https://wa.link/jr8esi" style="color:var(--teal);text-decoration:none;">wa.link/jr8esi</a></p></div>
+        <div><p class="appt-info-label">Teléfono / WhatsApp</p><p class="appt-info-value"><a href="tel:3215619417" style="color:var(--teal);text-decoration:none;">321 561 9417</a><br><a href="https://wa.link/jr8esi" style="color:var(--teal);text-decoration:none;">wa.link/jr8esi</a></p></div>
       </div>
       <div class="appt-info-item">
         <div class="appt-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
@@ -581,8 +455,8 @@ footer { background: var(--teal-dark); color: white; padding: 4rem 4rem 2rem; }
       <div class="form-group"><label>Teléfono / WhatsApp</label><input type="tel" id="telefono" placeholder="+57 300 000 0000"></div>
       <div class="form-group"><label>Correo electrónico</label><input type="email" id="email" placeholder="correo@email.com"></div>
     </div>
-    <div class="form-group"><label>Especialista de preferencia</label><div class="form-select-wrap"><select id="doctor"><option value="">Sin preferencia</option><option>Dra. Valentina Ríos – Estética</option><option>Dra. Camila Montoya – Ortodoncia</option><option>Dra. Sara Ospina – Rehabilitación e Implantes</option></select></div></div>
-    <div class="form-group"><label>Servicio de interés</label><div class="form-select-wrap"><select id="servicio"><option value="">Selecciona un servicio</option><option>Valoración gratuita</option><option>Odontología General</option><option>Odontología Estética / Diseño de Sonrisa</option><option>Ortodoncia</option><option>Blanqueamiento Dental</option><option>Implantes Dentales</option><option>Rehabilitación Oral</option><option>Odontopediatría</option></select></div></div>
+    <div class="form-group"><label>Especialista de preferencia</label><div class="form-select-wrap"><select id="doctor"><option value="">Sin preferencia</option><option>Dra. Stefany Espinosa – Ortodoncia</option><option>Especialista en Estética</option><option>Especialista en Rehabilitación e Implantes</option></select></div></div>
+    <div class="form-group"><label>Servicio de interés</label><div class="form-select-wrap"><select id="servicio"><option value="">Selecciona un servicio</option><option>Valoración gratuita</option><option>Odontología General</option><option>Odontología Estética / Diseño de Sonrisa</option><option>Ortodoncia Express</option><option>Blanqueamiento Dental</option><option>Implantes Dentales</option><option>Rehabilitación Oral</option><option>Odontopediatría</option></select></div></div>
     <div class="form-row">
       <div class="form-group"><label>Fecha preferida</label><input type="date" id="fecha"></div>
       <div class="form-group"><label>Hora preferida</label><div class="form-select-wrap"><select id="hora"><option>Mañana (8am–12pm)</option><option>Tarde (12pm–6pm)</option></select></div></div>
@@ -590,7 +464,7 @@ footer { background: var(--teal-dark); color: white; padding: 4rem 4rem 2rem; }
     <div class="form-group"><label>Mensaje o síntomas (opcional)</label><textarea id="mensaje" placeholder="Cuéntanos brevemente tu caso..."></textarea></div>
     <button class="form-submit" id="formBtn" onclick="submitForm()">Solicitar cita →</button>
     <div id="success-msg">✓ ¡Gracias! Tu solicitud fue recibida. Te contactaremos por WhatsApp para confirmar tu cita.</div>
-    <p class="form-note">También puedes escribirnos directamente: <a href="https://wa.link/jr8esi" style="color:var(--teal);">wa.link/jr8esi</a></p>
+    <p class="form-note">También puedes escribirnos directamente: <a href="https://wa.link/jr8esi" style="color:var(--teal);">wa.link/jr8esi</a> · <a href="tel:3215619417" style="color:var(--teal);">321 561 9417</a></p>
   </div>
 </section>
 
@@ -608,7 +482,7 @@ footer { background: var(--teal-dark); color: white; padding: 4rem 4rem 2rem; }
       <ul>
         <li><a href="#servicios">Odontología General</a></li>
         <li><a href="#servicios">Diseño de Sonrisa</a></li>
-        <li><a href="#servicios">Ortodoncia</a></li>
+        <li><a href="#servicios">Ortodoncia Express</a></li>
         <li><a href="#servicios">Implantes Dentales</a></li>
         <li><a href="#servicios">Rehabilitación Oral</a></li>
         <li><a href="#servicios">Odontopediatría</a></li>
@@ -617,10 +491,10 @@ footer { background: var(--teal-dark); color: white; padding: 4rem 4rem 2rem; }
     <div class="footer-col">
       <h4>Contacto</h4>
       <ul>
-        <li><a href="https://wa.link/jr8esi">WhatsApp: wa.link/jr8esi</a></li>
+        <li><a href="tel:3215619417">📞 321 561 9417</a></li>
+        <li><a href="https://wa.link/jr8esi">💬 wa.link/jr8esi</a></li>
         <li><a href="https://www.instagram.com/symetrieclinicadental">@symetrieclinicadental</a></li>
-        <li><a href="#citas">Av. Circunvalar Cll 7 # 14-18<br>Piso 1 Local 1, Pereira</a></li>
-        <li><a href="#citas">Agendar cita online</a></li>
+        <li><a href="#citas">Av. Circunvalar Cll 7 # 14-18, Pereira</a></li>
       </ul>
     </div>
   </div>
@@ -635,7 +509,6 @@ footer { background: var(--teal-dark); color: white; padding: 4rem 4rem 2rem; }
 </footer>
 
 <script>
-// Hamburger
 const hamburger = document.getElementById('hamburger');
 const mobileMenu = document.getElementById('mobileMenu');
 hamburger.addEventListener('click', () => {
@@ -646,14 +519,10 @@ function closeMenu() {
   hamburger.classList.remove('open');
   mobileMenu.classList.remove('open');
 }
-
-// Nav shadow on scroll
 window.addEventListener('scroll', () => {
   document.getElementById('navbar').style.boxShadow =
     window.scrollY > 40 ? '0 2px 20px rgba(0,0,0,0.07)' : 'none';
 });
-
-// Form submit
 function submitForm() {
   const nombre = document.getElementById('nombre').value.trim();
   const tel = document.getElementById('telefono').value.trim();
